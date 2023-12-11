@@ -2,7 +2,7 @@
 :root {
   --header-height: 3.5rem;
 
-  --first-color: hsl(291, 83%, 47%);
+  --first-color: hsl(32, 68%, 56%);
   --secondary-color:hsl(14, 98%, 50%);
   --black-color: hsl(0, 0%, 0%);
   --black-color-light: hsl(0, 0%, 40%);
@@ -117,7 +117,7 @@ img {
   content: "";
   width: 40px;
   height: 28px;
-  background-color: hsla(289, 98%, 50%, 0.2);
+  background-color: hsla(32, 68%, 56%, 0.2);
   position: absolute;
   top: -4px;
   right: -8px;
@@ -404,7 +404,7 @@ img {
 
 .home__description b{
   background: linear-gradient(90deg,
-              hsla(298, 98%, 50%, 0.3),
+              hsl(32, 82%, 64%),
               hsla(14, 98%, 50%, 0));
 }
 
