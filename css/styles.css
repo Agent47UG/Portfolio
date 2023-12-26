@@ -1697,3 +1697,12 @@ img {
   opacity: 1;
   transform: translate(-50%, -50%) scale(3);
 }
+
+@media screen and (max-width: 1150px){
+  .cursor{
+    opacity: 0;
+  }
+  *{
+    cursor: default;
+  }
+}
