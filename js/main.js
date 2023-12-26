@@ -99,3 +99,37 @@ sr.reveal('.home__name, .home__info, .about__container .section__title-1, .about
 sr.reveal('.services__card, .projects__card', {interval : 100})
 
 sr.reveal('.footer__links, .footer__copy', {origin: 'bottom'})
+
+sr.reveal('.nav__logo', {origin: 'top'})
+
+if(window.innerWidth >= 1150){
+    sr.reveal('.nav__list', {origin: 'top'})
+}
+
+const cursor = document.querySelectorAll(".cursor");
+const links = document.querySelectorAll(".link--cs");
+
+window.addEventListener("mousemove", (e) => {
+  
+  let x = e.pageX;
+  let y = e.pageY;
+  
+  cursor.forEach(el => {
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        el.classList.add("hover");
+      })
+
+      link.addEventListener("mouseleave", () => {
+        setTimeout(function() {
+            el.classList.remove("hover");;
+        }, 200)
+      })
+    })
+    
+  })
+  
+})
