@@ -106,30 +106,19 @@ if(window.innerWidth >= 1150){
     sr.reveal('.nav__list', {origin: 'top'})
 }
 
-const cursor = document.querySelectorAll(".cursor");
-const links = document.querySelectorAll(".link--cs");
-
-window.addEventListener("mousemove", (e) => {
+$(window).mousemove(function(event) { 
   
-  let x = e.pageX;
-  let y = e.pageY;
-  
-  cursor.forEach(el => {
-    el.style.left = `${x}px`;
-    el.style.top = `${y}px`;
-    
-    links.forEach(link => {
-      link.addEventListener("mouseenter", () => {
-        el.classList.add("hover");
-      })
-
-      link.addEventListener("mouseleave", () => {
-        setTimeout(function() {
-            el.classList.remove("hover");;
-        }, 200)
-      })
+    $('.cursor').css({
+      left: event.pageX,
+       top: event.pageY
     })
     
   })
   
-})
+  $('.link--cs')
+  .on('mouseenter', function() {
+    $('.cursor').addClass('focus')
+  })
+  .on('mouseleave', function() {  
+    $('.cursor').removeClass('focus')
+  })

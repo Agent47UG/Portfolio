@@ -32,6 +32,8 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+
+  --cursor-size: 15px; 
 }
 
 /*========== Responsive typography ==========*/
@@ -1653,49 +1655,57 @@ img {
 
 
 .cursor {
-  position: absolute;
-  height: 15px;
-  width: 15px;
+  height: var(--cursor-size);
+  width:  var(--cursor-size);
   border-radius: 50%;
-  transform: translate(-50%, -50%) ;
+  position: absolute;
+  transform: translate(-50%, -50%);
   pointer-events: none;
+
+  z-index: 997;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
 }
 
-.outer--cs{
-  background-color: var(--first-color);
-}
-
-.icon--cs{
-  opacity: 0;
-
-}
-
-.inner--cs{
+.cursor.cursor-follower {
   border: 1px solid #3b3b3b;
-  transition: 250ms ease-out;
+  transition: top .25s, left .25s,
+              width .5s, height .5s;
+  transition-timing-function: ease-out;
+  z-index: 998;
 }
 
-.cursor.hover {
-  transform: translate(-50%, -50%) scale(6);
-  transition: transform 450ms ease-in-out;
-}
-
-.inner--cs.hover {
+.cursor.cursor-dot {
   background: var(--first-color);
-  border: 0px solid var(--first-color);
+  transition: width .25s, height .25s;
 }
 
-.outer--cs.hover{
-  border: 1px solid var(--first-color);;
+.cursor.cursor-icon{
+  opacity: 0;
+  width: 0px;
+  z-index: 999;
+
 }
 
-.icon--cs.hover{
+.cursor-follower.focus {
+  border: 0px solid transparent;
+  background-color: var(--first-color);
+  --cursor-size: 90px;
+}
+
+.cursor-dot.focus {
+  --cursor-size: 0;
+}
+
+.cursor-icon.focus{
+  transition: top .25s, left .25s,
+  width .6s;
+  width: 45px;
   opacity: 1;
-  transform: translate(-50%, -50%) scale(3);
+  transition-timing-function: ease-out;
+  
 }
 
 @media screen and (max-width: 1150px){
