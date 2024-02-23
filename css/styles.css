@@ -1715,4 +1715,8 @@ img {
   *{
     cursor: default;
   }
+
+  .cursor-icon{
+    opacity: 0;
+  }
 }
