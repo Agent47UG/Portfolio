@@ -85,6 +85,31 @@ const scrollActive = () =>{
 window.addEventListener('scroll', scrollActive)
 
 
+const video = document.querySelector(".projects__image video");
+const video_container = document.querySelector(".projects__card");
+const project_image = document.querySelector("#echo_wall_image")
+
+const play_video = (event) => {
+    video.style.display = "inline";
+    video.play();
+    project_image.style.display = "none";
+    
+};
+
+const stop_video = (event) => {
+    video.pause();
+    
+    project_image.style.display = "inline";
+    video.style.display = "none";
+};
+
+
+video_container.addEventListener('mouseenter', play_video);
+video_container.addEventListener('mouseleave', stop_video);
+
+
+
+
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',

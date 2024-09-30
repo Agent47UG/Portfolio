@@ -898,6 +898,17 @@ img {
   background-color: var(--white-color);
 }
 
+.projects__image video{
+  position: relative;
+  max-width: 100%;
+  display: none;
+}
+
+
+
+
+
+
 .contact{
   padding-bottom: 0;
 }
