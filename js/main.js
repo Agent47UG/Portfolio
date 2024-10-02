@@ -123,7 +123,7 @@ sr.reveal('.home__name, .home__info', {origin: 'left'})
 
 sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
 
-sr.reveal('.services__card, .projects__card', {duration:1000})
+sr.reveal('.services__skill, .projects__card', {duration:1000})
 
 sr.reveal('.footer__links, .footer__copy', {origin: 'bottom'})
 
