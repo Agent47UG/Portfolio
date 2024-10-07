@@ -106,7 +106,8 @@ img {
 .preloaderVideo{
   height: 300px;
   overflow: hidden;
-  width:102%;
+  width:100%;
+  clip-path: inset(1px 1px);
 } 
 
 .container {
