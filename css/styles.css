@@ -1307,6 +1307,10 @@ img {
     width: 100%;
   }
 
+  .preloaderVideo{
+    width:100%;
+  } 
+
   .contact__data .section__title-2 {
     transform: translateX(0);
   }
@@ -1327,6 +1331,10 @@ img {
     padding: 4rem 1.5rem;
     margin-inline: auto;
   }
+  .preloaderVideo{
+    width:100%;
+  } 
+
 
   .contact__container {
     grid-template-columns: 500px;
