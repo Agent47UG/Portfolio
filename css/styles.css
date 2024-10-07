@@ -102,9 +102,13 @@ img {
   z-index: 999;
 }
 
+.preloadvid{
+  overflow: hidden;
+}
+
 .preloaderVideo{
   height: 300px;
-  width:100%;
+  width:103%;
 } 
 
 .container {
