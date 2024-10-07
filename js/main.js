@@ -100,13 +100,14 @@ function preloaderVideo() {
     video.play();
     video.addEventListener('ended', function() {
       preloader.style.display = "none";
-      sr.reveal('.home__perfil, .contact__mail', {origin: 'right'})
+      sr.reveal('.home__perfil, .contact__mail, .nav__toggle', {origin: 'right'})
       sr.reveal('.home__name, .home__info', {origin: 'left'})
       sr.reveal('.nav__logo', {origin: 'top'})
       if(window.innerWidth >= 1150){
         sr.reveal('.nav__list', {origin: 'top'})
         }
-    
+      sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
+
 
       
     })
@@ -137,9 +138,6 @@ video_container.addEventListener('mouseleave', stop_video);
 
 
 
-
-
-sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
 
 sr.reveal('.services__skill, .projects__card', {duration:1000})
 
