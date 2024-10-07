@@ -105,6 +105,7 @@ img {
 
 .preloaderVideo{
   height: 300px;
+  overflow: hidden;
   width:100%;
 } 
 
