@@ -2,7 +2,6 @@ var preloaderAnimation = bodymovin.loadAnimation({
     container:document.getElementById("preloaderAnimation"),
     path: 'img/preloader.json',
     render: 'svg',
-    loop: true,
     autoplay: true,
     name:'preloader Animation'
  });
