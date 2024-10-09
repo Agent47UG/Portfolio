@@ -92,24 +92,16 @@ img {
 }
 
 .preloader{
-  background-color: #dedede;
   position: fixed;
   height: 100dvh;
-  width: 100dvw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #21242d url('/img/preloader.gif') no-repeat center;
   z-index: 999;
 }
 
-.preloadvid{
-  overflow: hidden;
-}
-
-.preloaderVideo{
-  height: 310px;
-  width:104%;
-} 
 
 .container {
   max-width: 1120px;
@@ -810,8 +802,7 @@ img {
   grid-template-columns: 310px;
   justify-content: center;
   row-gap: 1.4rem;
-  padding-top: 1rem;
-  padding-block: 3rem 5rem;
+  padding-block: 0rem 1rem;
 }
 
 .services__skill {

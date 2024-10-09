@@ -1,5 +1,3 @@
-preloaderVideo();
-
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
       navClose = document.getElementById('nav-close')
@@ -86,33 +84,6 @@ const scrollActive = () =>{
 }
 window.addEventListener('scroll', scrollActive)
 
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 100,
-})
-
-
-function preloaderVideo() {
-    var video = document.getElementById('preloaderVideo')
-    var preloader = document.getElementById('preloader')
-    video.play();
-    video.addEventListener('ended', function() {
-      preloader.style.display = "none";
-      sr.reveal('.home__perfil, .contact__mail, .nav__toggle', {origin: 'right'})
-      sr.reveal('.home__name, .home__info', {origin: 'left'})
-      sr.reveal('.nav__logo', {origin: 'top'})
-      if(window.innerWidth >= 1150){
-        sr.reveal('.nav__list', {origin: 'top'})
-        }
-      sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
-
-
-      
-    })
-  }
-  
 
 const video = document.querySelector(".projects__image video");
 const video_container = document.querySelector(".projects__card");
@@ -139,12 +110,30 @@ video_container.addEventListener('mouseleave', stop_video);
 
 
 
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 100,
+})
+
+
+sr.reveal('.home__perfil, .contact__mail', {origin: 'right'})
+
+sr.reveal('.home__name, .home__info', {origin: 'left'})
+
+sr.reveal('.nav__logo', {origin: 'top'})
+      
+sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
+
 sr.reveal('.services__skill, .projects__card', {duration:1000})
 
 sr.reveal('.footer__links, .footer__copy', {origin: 'bottom'})
 
 
-
+if(window.innerWidth >= 1150){
+    sr.reveal('.nav__list', {origin: 'top'})
+}
 
 $(window).mousemove(function(event) { 
   
