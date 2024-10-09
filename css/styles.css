@@ -98,8 +98,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #21242d url('/img/preloader.gif') no-repeat center;
+  background: #dedede;
   z-index: 999;
+}
+
+.preloaderAnimation{
+  width: 400px;
 }
 
 
