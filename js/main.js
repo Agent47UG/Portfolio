@@ -7,7 +7,29 @@ var preloaderAnimation = bodymovin.loadAnimation({
     name:'preloader Animation'
  });
 
+ const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 50,
+})
 
+sr.reveal('.services__skill, .projects__card', {duration:1000})
+sr.reveal('.footer__links, .footer__copy', {origin: 'bottom'})
+
+window.addEventListener('load', function(){
+    const preloader = document.getElementById("preloader");
+    setTimeout(() => {
+        preloader.style.display = 'none';
+        sr.reveal('.home__perfil, .contact__mail', {origin: 'right'})
+        sr.reveal('.home__name, .home__info', {origin: 'left'})
+        sr.reveal('.nav__logo', {origin: 'top'})
+        sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
+        if(window.innerWidth >= 1150){
+            sr.reveal('.nav__list', {origin: 'top'})
+        }
+    },4500);    
+});
 
 
 const navMenu = document.getElementById('nav-menu'),
@@ -119,33 +141,6 @@ const stop_video = (event) => {
 video_container.addEventListener('mouseenter', play_video);
 video_container.addEventListener('mouseleave', stop_video);
 
-
-
-
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 100,
-})
-
-
-sr.reveal('.home__perfil, .contact__mail', {origin: 'right'})
-
-sr.reveal('.home__name, .home__info', {origin: 'left'})
-
-sr.reveal('.nav__logo', {origin: 'top'})
-      
-sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
-
-sr.reveal('.services__skill, .projects__card', {duration:1000})
-
-sr.reveal('.footer__links, .footer__copy', {origin: 'bottom'})
-
-
-if(window.innerWidth >= 1150){
-    sr.reveal('.nav__list', {origin: 'top'})
-}
 
 $(window).mousemove(function(event) { 
   
