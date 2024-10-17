@@ -1,51 +1,51 @@
 var preloaderAnimation = bodymovin.loadAnimation({
-    container:document.getElementById("preloaderAnimation"),
+    container: document.getElementById("preloaderAnimation"),
     path: 'img/preloader.json',
     render: 'svg',
     loop: false,
     autoplay: true,
-    name:'preloader Animation'
- });
+    name: 'preloader Animation'
+});
 
- const sr = ScrollReveal({
+const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
     duration: 2500,
     delay: 50,
 })
 
-sr.reveal('.services__skill, .projects__card', {duration:1000})
-sr.reveal('.footer__links, .footer__copy', {origin: 'bottom'})
+sr.reveal('.services__skill, .projects__card', { duration: 1000 })
+sr.reveal('.footer__links, .footer__copy', { origin: 'bottom' })
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
     const preloader = document.getElementById("preloader");
     setTimeout(() => {
         preloader.style.display = 'none';
-        sr.reveal('.home__perfil, .contact__mail', {origin: 'right'})
-        sr.reveal('.home__name, .home__info', {origin: 'left'})
-        sr.reveal('.nav__logo', {origin: 'top'})
-        sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', {origin: 'left',duration:1500})
-        if(window.innerWidth >= 1150){
-            sr.reveal('.nav__list', {origin: 'top'})
+        sr.reveal('.home__perfil, .contact__mail', { origin: 'right' })
+        sr.reveal('.home__name, .home__info', { origin: 'left' })
+        sr.reveal('.nav__logo', { origin: 'top' })
+        sr.reveal('.about__container,.about__image, .about__info, .contact__social, .contact__data', { origin: 'left', duration: 1500 })
+        if (window.innerWidth >= 1150) {
+            sr.reveal('.nav__list', { origin: 'top' })
         }
-    },4500);    
+    }, 4500);
 });
 
 
 const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+    navToggle = document.getElementById('nav-toggle'),
+    navClose = document.getElementById('nav-close')
 
 
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu')
     })
 }
 
 
-if(navClose){
-    navClose.addEventListener('click', () =>{
+if (navClose) {
+    navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu')
     })
 }
@@ -54,17 +54,17 @@ if(navClose){
 
 const navLink = document.querySelectorAll('.nav__link')
 
-const linkAction = () =>{
+const linkAction = () => {
     const navMenu = document.getElementById('nav-menu')
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 
-const shadowHeader = () =>{
+const shadowHeader = () => {
     const header = document.getElementById('header')
-    this.scrollY >= 50 ? header.classList.add('shadow-header') 
-                       : header.classList.remove('shadow-header')
+    this.scrollY >= 50 ? header.classList.add('shadow-header')
+        : header.classList.remove('shadow-header')
 }
 window.addEventListener('scroll', shadowHeader)
 
@@ -72,89 +72,92 @@ window.addEventListener('scroll', shadowHeader)
 const contactForm = document.getElementById('contact-form'),
     contactMessage = document.getElementById('contact-message')
 
-const sendEmail = (e) =>{
+const sendEmail = (e) => {
     e.preventDefault()
 
     // serviceID - templateID - #form - publicKey
-    emailjs.sendForm('service_awl3cce','template_iv3pqzz','#contact-form','Dy4thOMBgbhReAnYZ')
-    .then(() => {
-        // Show sent message
-        contactMessage.textContent = 'Message sent successfully ✅'
-        
-        // Remove message after five seconds
-        setTimeout(() => {
-            contactMessage.textContent = ''
-        }, 5000)
+    emailjs.sendForm('service_awl3cce', 'template_iv3pqzz', '#contact-form', 'Dy4thOMBgbhReAnYZ')
+        .then(() => {
+            // Show sent message
+            contactMessage.textContent = 'Message sent successfully ✅'
 
-        // Clear input fields
-        contactForm.reset()
+            // Remove message after five seconds
+            setTimeout(() => {
+                contactMessage.textContent = ''
+            }, 5000)
 
-    }, () => {
-        // Show error message
-        contactMessage.textContent = 'Message not sent (service error) ❌'
-    })
+            // Clear input fields
+            contactForm.reset()
+
+        }, () => {
+            // Show error message
+            contactMessage.textContent = 'Message not sent (service error) ❌'
+        })
 }
 
 contactForm.addEventListener('submit', sendEmail)
 
 
 const sections = document.querySelectorAll('section[id]')
-    
-const scrollActive = () =>{
-  	const scrollDown = window.scrollY
 
-	sections.forEach(current =>{
-		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+const scrollActive = () => {
+    const scrollDown = window.scrollY
 
-		if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else{
-			sectionsClass.classList.remove('active-link')
-		}                                                    
-	})
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop - 58,
+            sectionId = current.getAttribute('id'),
+            sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+        if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+            sectionsClass.classList.add('active-link')
+        } else {
+            sectionsClass.classList.remove('active-link')
+        }
+    })
 }
 window.addEventListener('scroll', scrollActive)
 
 
-const video = document.querySelector(".projects__image video");
-const video_container = document.querySelector(".projects__card");
-const project_image = document.querySelector("#echo_wall_image")
+const projectCards = document.querySelectorAll(".projects__card");
 
-const play_video = (event) => {
-    video.style.display = "inline";
-    video.play();
-    project_image.style.display = "none";
-    
-};
+projectCards.forEach(card => {
+    const video = card.querySelector(".project__video");
+    const projectImage = card.querySelector(".projects__img");
 
-const stop_video = (event) => {
-    video.pause();
-    
-    project_image.style.display = "inline";
-    video.style.display = "none";
-};
+    const playVideo = () => {
+        if (video) {
+            video.style.display = "block";
+            video.play();
+            projectImage.style.display = "none";
+        }
+    };
 
+    const stopVideo = () => {
+        if (video) {
+            video.pause();
+            projectImage.style.display = "block";
+            video.style.display = "none";
+        }
+    };
 
-video_container.addEventListener('mouseenter', play_video);
-video_container.addEventListener('mouseleave', stop_video);
+    card.addEventListener('mouseenter', playVideo);
+    card.addEventListener('mouseleave', stopVideo);
+});
 
+$(window).mousemove(function (event) {
 
-$(window).mousemove(function(event) { 
-  
     $('.cursor').css({
-      left: event.pageX,
-       top: event.pageY
+        left: event.pageX,
+        top: event.pageY
     })
-    
-  })
-  
-  $('.link--cs')
-  .on('mouseenter', function() {
-    $('.cursor').addClass('focus')
-  })
-  .on('mouseleave', function() {  
-    $('.cursor').removeClass('focus')
-  })
+
+})
+
+$('.link--cs')
+    .on('mouseenter', function () {
+        $('.cursor').addClass('focus')
+    })
+    .on('mouseleave', function () {
+        $('.cursor').removeClass('focus')
+    })
