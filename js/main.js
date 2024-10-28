@@ -79,7 +79,7 @@ const sendEmail = (e) => {
     emailjs.sendForm('service_awl3cce', 'template_iv3pqzz', '#contact-form', 'Dy4thOMBgbhReAnYZ')
         .then(() => {
             // Show sent message
-            contactMessage.textContent = 'Message sent successfully ✅'
+            contactMessage.textContent = 'Message Sent Successfully ✅'
 
             // Remove message after five seconds
             setTimeout(() => {
@@ -91,7 +91,7 @@ const sendEmail = (e) => {
 
         }, () => {
             // Show error message
-            contactMessage.textContent = 'Message not sent (service error) ❌'
+            contactMessage.textContent = 'Service Error Please Try Again! ❌'
         })
 }
 
